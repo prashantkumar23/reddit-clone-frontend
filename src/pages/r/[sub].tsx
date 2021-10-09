@@ -22,9 +22,11 @@ export default function SubPage() {
 
   const subName = router.query.sub;
 
-  const { data: sub, error, revalidate } = useSWR<Sub>(
-    subName ? `/subs/${subName}` : null
-  );
+  const {
+    data: sub,
+    error,
+    revalidate,
+  } = useSWR<Sub>(subName ? `/subs/${subName}` : null);
 
   useEffect(() => {
     if (!sub) return;
@@ -95,7 +97,7 @@ export default function SubPage() {
                 <div
                   className="h-56 bg-blue-500"
                   style={{
-                    backgroundImage: `url(${sub.bannerUrl})`,
+                    backgroundImage: `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/images/${sub.bannerUrn}`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -110,7 +112,7 @@ export default function SubPage() {
               <div className="container relative flex">
                 <div className="absolute" style={{ top: -15 }}>
                   <Image
-                    src={sub.imageUrl}
+                    src={`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/images/${sub.imageUrn}`}
                     alt="Sub"
                     className={classNames("rounded-full", {
                       "cursor-pointer": ownSub,
