@@ -11,10 +11,6 @@ module.exports = {
     return config;
   },
   images: {
-    domains: [
-      "www.gravatar.com",
-      process.env.APP_DOMAIN,
-      "reddit-clonee-backend.herokuapp.com",
-    ],
+    domains: ["www.gravatar.com", "reddit-clonee-backend.herokuapp.com"],
   },
 };
