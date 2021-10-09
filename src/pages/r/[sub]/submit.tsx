@@ -96,6 +96,12 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 
     return { props: {} };
   } catch (err) {
-    res.writeHead(307, { Location: "/login" }).end();
+    // res.writeHead(307, { Location: "/login" }).end();
+    return {
+      redirect: {
+        destination: "/login",
+        statusCode: 307,
+      },
+    };
   }
 };
