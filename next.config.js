@@ -14,7 +14,7 @@ module.exports = {
     domains: [
       "www.gravatar.com",
       process.env.APP_DOMAIN,
-      process.env.NEXT_PUBLIC_SERVER_BASE_URL,
+      "reddit-clonee-backend.herokuapp.com",
     ],
   },
 };
