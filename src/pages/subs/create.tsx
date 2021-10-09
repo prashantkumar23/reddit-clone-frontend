@@ -108,6 +108,7 @@ export default function create() {
 export const getServerSideProps = async (context) => {
   try {
     const cookie = context.req.headers.cookie;
+    console.log(cookie);
     if (!cookie) throw new Error("Missing auth token cookie");
 
     await Axios.get("/auth/me", { headers: { cookie } });
